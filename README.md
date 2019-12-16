@@ -76,3 +76,23 @@ begin
   Table1.Iterate(loaddata);
 end;
 ```
+# Pattern Delegate
+Delegates the rule to a partner that knows the real context and the real rule of business.
+```
+muMarketPlace.Create(Partner);
+myMarketPlace.ProcessOrder; //I don't know how to process Order, but my partner does;
+```
+I just show how the pseudo class TMarketPlace takes advantage of Interface Delegation
+```
+type
+TMarketPlace = class
+Partner: IBusinessDelegate;
+procedure ProcessOrder(Sender: TObject);
+implementation
+TMarketPlace.ProcessOrder(Sender: TObject);
+begin
+Partner.PrcessOrder(Sender); //Or Self if you want
+end;
+
+```
+
