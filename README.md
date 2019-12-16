@@ -78,12 +78,12 @@ end;
 ```
 # Pattern Delegate
 Delegates the rule to a partner that knows the real context and the real rule of business.
-```
+```Delphi
 myMarketPlace.Create(Partner);
 myMarketPlace.ProcessOrder; //I don't know how to process Order, but my partner does;
 ```
 I just show how the pseudo class TMarketPlace takes advantage of Interface Delegation
-```
+```Delphi
 type
 TMarketPlace = class
 Partner: IBusinessDelegate;
